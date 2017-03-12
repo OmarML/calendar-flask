@@ -5,27 +5,22 @@
 
 <title> Winning Student </title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="static/style.css">
 
 </head>
 
 <body>
 
 <h1 style = "text-align:center;"> WINNING STUDENT  </h1>
-
-<p style = "text-align:center;"> <b>Choose your subjects: </b> </p>
-
-<form action="/upload" method="post">
-    <div style="text-align:center;">
-	<button onclick="upload_file()" name="upload button"> Upload </button>
-    </div>
-</form>
-<div class="dropdown">
-  <button class="dropbtn"> Choose the option</button>
-  <div class="dropdown-content">
-    <a href="#">Demo Events</a>
-  </div>
+<div style = "text-align:center;">
+<form action="/upload" method="POST">
+  Timetable URL:<br>
+  <input type="text" name="jsonurl" value="" size="40">
+  <br> <br>
+  <input type="submit" value="Upload">
+</form> 
 </div>
+
 </body>
 
 </html>
