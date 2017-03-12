@@ -10,7 +10,7 @@ app=Flask(__name__)
 flow = client.flow_from_clientsecrets(
 'client_secret_web.json',
 scope='https://www.googleapis.com/auth/calendar',
-redirect_uri='127.0.0.1:5000/loggedin')
+redirect_uri='http://localhost:8080/loggedin')
 flow.user_agent="Winning Student"
 
 @app.route('/')
@@ -25,4 +25,4 @@ def upload_file():
 def logged_in():
     return "Hello"
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
