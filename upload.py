@@ -57,13 +57,11 @@ def main():
 
     with open(file_to_upload,'r') as f:
         json_object=json.load(f)
-    print(json_object)
 
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     for event in json_object:
-        print(event)
         event = service.events().insert(calendarId='primary', body=event).execute()
         print('Event created: %s' % (event.get('htmlLink')))
 
