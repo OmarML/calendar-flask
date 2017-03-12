@@ -22,10 +22,10 @@
   
 # Installation Notes
 Dependency:
-Python 3.x
-httplib2
-urllib
-flask
+Python 3.x,
+httplib2,
+urllib,
+flask,
 google-api-python-client
 
-If you are setting up this for yourself
+If you are setting up this for yourself, you will need to first set up OAuth 2.0 credentials such as a client ID.
