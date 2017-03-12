@@ -34,9 +34,9 @@ def upload_file():
     return redirect(auth_uri)
 @app.route('/loggedin', methods=['GET','POST'])
 def logged_in():
-    auth_code = (request.args.get('code'))
-    if not auth_code:
+    if 'code' not in request.args:
         return "Bad Request"
+    auth_code = (request.args.get('code'))
     credentials = flow.step2_exchange(auth_code)
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
