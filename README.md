@@ -7,18 +7,24 @@
   
 # Challenges
   -The Calendar in the webpage was difficult to convert into the acceptable json files. 
+
   -The Google Calendar API and OAuth2 integration
+
   -Alexa sometimes didn't recognize commands
   
 # Learned About
   -OAuth2 protocol
+
   -Webpage scraping
   
 # Authors
-  -Alice
-  -Andy
-  -Damian
-  -Omar
+  -Alice Ly
+
+  -Andy Jiang
+
+  -Damian Czarnecki
+
+  -Omar Diab
   
 # Installation Notes
 Dependency:
