@@ -1,6 +1,5 @@
 from __future__ import print_function
 import httplib2
-import urllib.request
 import os
 import sys
 import json
@@ -8,6 +7,12 @@ from flask import (render_template,Flask,
         redirect,request,url_for,session)
 from apiclient import discovery
 from oauth2client import client
+try:
+        # For Python 3.0 and later
+            from urllib.request import urlopen
+except ImportError:
+        # Fall back to Python 2's urllib2
+            from urllib2 import urlopen
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = "123456"
@@ -36,7 +41,7 @@ def logged_in():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     print(session['url'])
-    f=urllib.request.urlopen(session['url'] )
+    f=urlopen(session['url'] )
     json_object=json.loads(f.readall().decode('utf-8'))
     print(json_object)
     for event in json_object:
