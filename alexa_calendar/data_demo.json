@@ -1,0 +1,7 @@
+[{
+"start": {"timeZone": "UTC", "dateTime": "2017-03-14T11:00:00Z"}, 
+"description": "Lecture", 
+"end": {"timeZone": "UTC", "dateTime": "2017-03-14T12:00:00Z"},
+"location": "Some Lecture Theatre",
+"summary": "Event Summary"
+}]
