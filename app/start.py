@@ -1,9 +1,11 @@
 from __future__ import print_function
 import httplib2
+import urllib3
 import os
 import sys
 import json
-from flask import render_template,Flask,redirect
+from flask import render_template,Flask,redirect,request
+from apiclient import discovery
 from oauth2client import client
 
 app=Flask(__name__)
@@ -23,6 +25,15 @@ def upload_file():
     return redirect(auth_uri)
 @app.route('/loggedin', methods=['GET','POST'])
 def logged_in():
-    return "Hello"
+    file_to_upload='demo_data.json'
+    auth_code = (request.args.get('code'))
+    credentials = flow.step2_exchange(auth_code)
+    http = credentials.authorize(httplib2.Http())
+    service = discovery.build('calendar', 'v3', http=http)
+    with open(file_to_upload,'r') as f:
+        json_object=json.load(f)
+    for event in json_object:
+        event = service.events().insert(calendarId='primary', body=event).execute()
+    return "Events Created Successfully"
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
